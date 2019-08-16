@@ -1,3 +1,4 @@
+# coding:utf-8
 import RPi.GPIO as GPIO
 import time
 #绑定对应的引脚，来自于图纸
@@ -33,7 +34,7 @@ def backword(speed, backtime):
       GPIO.output(BIN2, True)  # BIN2
       GPIO.output(BIN1, False)  # BIN1
       time.sleep(backtime)
-      
+
 if __name__ == '__main__':
     try:
          while True:
