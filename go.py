@@ -8,8 +8,10 @@ AIN2 = 27
 PWMB=23
 BIN1= 25
 BIN2 = 24
+
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
+# 设置引脚为输出
 GPIO.setup(PWMA, GPIO.OUT)
 GPIO.setup(AIN1, GPIO.OUT)
 GPIO.setup(AIN2, GPIO.OUT)
@@ -22,14 +24,46 @@ rightMotor = GPIO.PWM(PWMB, 100)
 leftMotor.start(0)
 rightMotor.start(0)
 
-def go(speed,runtime):
+def forward(speed,runtime):
     leftMotor.ChangeDutyCycle(speed)
     GPIO.output(AIN1, True)#AIN1高电平则正转
-    #GPIO.output(AIN2, False)#如果为True则翻转
+    GPIO.output(AIN2, True)#如果为True则翻转
     rightMotor.ChangeDutyCycle(speed)
-    GPIO.output(BIN1, False)
-    #GPIO.output(BIN2, False)
+    GPIO.output(BIN1, True)
+    GPIO.output(BIN2, True)
     time.sleep(runtime)
 
+def backword(speed, backtime):
+      leftMotor.ChangeDutyCycle(speed)
+      GPIO.output(AIN2, True)  # AIN2
+      GPIO.output(AIN1, False)  # AIN1
+      rightMotor.ChangeDutyCycle(speed)
+      GPIO.output(BIN2, True)  # BIN2
+      GPIO.output(BIN1, False)  # BIN1
+      time.sleep(backtime)
+
+def turnLeft(speed, lefttime):
+    leftMotor.ChangeDutyCycle(speed)
+    GPIO.output(AIN1, False)
+    GPIO.output(AIN2, True)
+    rightMotor.ChangeDutyCycle(speed)
+    GPIO.output(BIN1, True)
+    GPIO.output(BIN2, False)
+    time.sleep(lefttime)
+
+#右转弯函数
+def turnRight(speed, righttime):
+    leftMotor.ChangeDutyCycle(speed)
+    GPIO.output(AIN1, True)
+    GPIO.output(AIN2, False)
+    rightMotor.ChangeDutyCycle(speed)
+    GPIO.output(BIN1, False)
+    GPIO.output(BIN2, True)
+    time.sleep(righttime)
+
 if __name__ == '__main__':
-    go(50,3)
+    try:
+         while True:
+             forward(50,3)
+    except KeyboardInterrupt:
+         GPIO.cleanup()
