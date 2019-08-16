@@ -1,0 +1,8 @@
+config
+env
+*.pyc
+.vscode/settings.json
+*.idea
+.idea
+migrations
+apps/cloud_storage/sdk_key.py
