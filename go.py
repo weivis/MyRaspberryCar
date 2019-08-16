@@ -62,3 +62,4 @@ def turnRight(speed, righttime):
     time.sleep(righttime)
 
 forward(50,3)
+GPIO.cleanup()
