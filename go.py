@@ -61,9 +61,4 @@ def turnRight(speed, righttime):
     GPIO.output(BIN2, True)
     time.sleep(righttime)
 
-if __name__ == '__main__':
-    try:
-         while True:
-             forward(50,3)
-    except KeyboardInterrupt:
-         GPIO.cleanup()
+forward(50,3)
