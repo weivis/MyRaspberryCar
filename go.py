@@ -33,7 +33,6 @@ def go(speed,runtime):
 
 if __name__ == '__main__':
     try:
-         while True:
-             go(50,3)
+        go(50,3)
     except KeyboardInterrupt:
-         GPIO.cleanup()
+        GPIO.cleanup()
