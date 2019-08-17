@@ -1,3 +1,4 @@
+# coding:utf-8
 import RPi.GPIO as GPIO
 import time
 #绑定对应的引脚，来自于图纸
