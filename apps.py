@@ -62,11 +62,4 @@ def turnRight(speed, righttime):
     time.sleep(righttime)
 
 if __name__ == '__main__':
-    try:
-         while True:
-             forward(50,3)
-            #  turnLeft(70, 3)
-            #  backword(50,3)
-            #  turnRight(70,3)
-    except KeyboardInterrupt:
-         GPIO.cleanup()
+    forward(50,3)
