@@ -29,8 +29,8 @@ def forward(speed,runtime):
     GPIO.output(AIN1, True)#AIN1高电平则正转
     GPIO.output(AIN2, True)#如果为True则翻转
     rightMotor.ChangeDutyCycle(speed)
-    GPIO.output(BIN1, True)
-    GPIO.output(BIN2, True)
+    GPIO.output(BIN1, False)
+    GPIO.output(BIN2, False)
     time.sleep(runtime)
 
-forward(50,20)
+forward(80,20)
