@@ -33,4 +33,4 @@ def forward(speed,runtime):
     GPIO.output(BIN2, False)
     time.sleep(runtime)
 
-forward(3,20)
+forward(50,20)
