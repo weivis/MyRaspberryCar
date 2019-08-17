@@ -33,10 +33,10 @@ rightMotor.start(0)
 def runbody(speed, backtime):
     leftMotor.ChangeDutyCycle(speed)
     GPIO.output(AIN2, True)  # AIN2
-    GPIO.output(AIN1, False)  # AIN1
+    GPIO.output(AIN1, True)  # AIN1
     rightMotor.ChangeDutyCycle(speed)
     GPIO.output(BIN2, False)  # BIN2
-    GPIO.output(BIN1, True)  # BIN1
+    GPIO.output(BIN1, False)  # BIN1
     time.sleep(backtime)
 
 if __name__ == '__main__':
