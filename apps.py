@@ -27,10 +27,10 @@ rightMotor.start(0)
 def forward(speed,runtime):
     leftMotor.ChangeDutyCycle(speed)
     GPIO.output(AIN1, True)#AIN1高电平则正转
-    GPIO.output(AIN2, False)#如果为True则翻转
+    GPIO.output(AIN2, True)#如果为True则翻转
     rightMotor.ChangeDutyCycle(speed)
     GPIO.output(BIN1, True)
-    GPIO.output(BIN2, False)
+    GPIO.output(BIN2, True)
     time.sleep(runtime)
 
 def backword(speed, backtime):
