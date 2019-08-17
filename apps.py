@@ -30,14 +30,18 @@ rightMotor = GPIO.PWM(PWMB, 100)
 leftMotor.start(0)
 rightMotor.start(0)
 
-# 电机旋转速度
-leftMotor.ChangeDutyCycle(50)
-rightMotor.ChangeDutyCycle(50)
+def runbody(speed, backtime):
+    leftMotor.ChangeDutyCycle(speed)
+    GPIO.output(AIN2, True)  # AIN2
+    GPIO.output(AIN1, False)  # AIN1
+    rightMotor.ChangeDutyCycle(speed)
+    GPIO.output(BIN2, False)  # BIN2
+    GPIO.output(BIN1, True)  # BIN1
+    time.sleep(backtime)
 
-GPIO.output(AIN1, True)
-GPIO.output(AIN2, True)
-GPIO.output(BIN1, True)
-GPIO.output(BIN2, True)
-time.sleep(3)
-
-GPIO.cleanup()
+if __name__ == '__main__':
+    try:
+         while True:
+             runbody(50,3)
+    except KeyboardInterrupt:
+         GPIO.cleanup()
