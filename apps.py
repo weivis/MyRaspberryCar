@@ -2,8 +2,6 @@
 import RPi.GPIO as GPIO
 import time
 
-GPIO.cleanup()
-
 '''18引脚控制的是左侧两个电机'''
 PWMA = 18
 '''23引脚控制的右侧两个电机'''
